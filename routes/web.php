@@ -1,22 +1,18 @@
 <?php
 
-$cosas = 'algo';
+Route::get('/genero/agregar', 'GenerosController@agregar');
+Route::post('/genero/agregar', 'GenerosController@guardar');
 
-Route::get('/Clase1/{nombre}/{apellido?}', function($nombre, $apellido='Coso') use ($cosas){
-    $mivar =  '<h1>Hola a '.$nombre.', '.$apellido.', '.$cosas.'</h1>';
-    return $mivar;
+Route::get('/pelicula/buscar/{titulo}', 'PeliculasController@mostrarPelicula');
+Route::get('/pelicula/{id}', 'PeliculasController@buscarPeliculaId');
+
+Route::get('/peliculas/buscar/{nombre}', 'PeliculasController@buscarPeliculaNombre');
+
+Route::get('/uno', function(){
+    return '<h1>Hola Mundo</h1>';
 });
 
-Route::get('/Clase1', function(){
-    return '<h1>Hola a Todos</h1>
-        <img src="https://www.codeforest.net/wp-content/uploads/2013/04/laravel-logo-big-570x398.png">';
-});
-
-
-
-
-
-
+Route::get('/peliculas', 'PeliculasController@listar');
 
 Route::get('/', function () {
     return view('welcome');
