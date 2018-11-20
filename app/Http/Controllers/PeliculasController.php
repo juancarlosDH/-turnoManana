@@ -21,18 +21,7 @@ class PeliculasController extends Controller
           ['title' => 'Titanic','poster' => 'images/titanic.jpg' , 'genre' => 'Drama'],
          ];
 
-         $todo = '<h1>Listado de Pelis</h1>';
-
-         $todo .= '<ul>';
-
-         foreach ($peliculas as $peli) {
-             $todo .=  "<li> <img width='30px;' src='/{$peli['poster']}'>
-             <a href='/pelicula/{$peli['title']}'>{$peli['title']}</a> - {$peli['genre']}</li>";
-         }
-
-         $todo .= '</ul>';
-
-         return $todo;
+        return view('peliculas.listar', ['peliculas' => $peliculas] ) ;
     }
 
     public function mostrarPelicula($titulo)

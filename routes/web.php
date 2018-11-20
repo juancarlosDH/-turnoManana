@@ -1,19 +1,25 @@
 <?php
 
-Route::get('/genero/agregar', 'GenerosController@agregar');
-Route::post('/genero/agregar', 'GenerosController@guardar');
-
-Route::get('/pelicula/buscar/{titulo}', 'PeliculasController@mostrarPelicula');
-Route::get('/pelicula/{id}', 'PeliculasController@buscarPeliculaId');
-
-Route::get('/peliculas/buscar/{nombre}', 'PeliculasController@buscarPeliculaNombre');
-
-Route::get('/uno', function(){
-    return '<h1>Hola Mundo</h1>';
+//clase 3
+Route::prefix('/genres')->name('genres.')->group( function(){
+    Route::get('/new', 'GenresController@add')->name('add');
+    Route::post('/', 'GenresController@save')->name('save');
+    Route::get('/', 'GenresController@index')->name('listar');
 });
 
-Route::get('/peliculas', 'PeliculasController@listar');
+//clase 2
+Route::get('/generos/agregar', 'GenerosController@agregar');
+Route::post('/generos/agregar', 'GenerosController@guardar');
 
-Route::get('/', function () {
-    return view('welcome');
+//clase 1 y 2
+Route::prefix('/movies')->name('movies.')->group( function(){
+    Route::get('/buscar/{titulo}', 'PeliculasController@mostrarPelicula')->name('buscarPorTitulo');
+    Route::get('/{id}', 'PeliculasController@buscarPeliculaId')->name('buscarPorId');
+
+    Route::get('/buscar/{nombre}', 'PeliculasController@buscarPeliculaNombre')->name('buscarPorNombre');
+
+    Route::get('/', 'PeliculasController@listar')->name('listar');
 });
+
+
+Route::get('/', 'HomeController@index');
