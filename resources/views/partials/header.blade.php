@@ -13,6 +13,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li><a href="{{ route('movies.listar') }}">Peliculas</a></li>
+        <li><a href="{{ route('actors.index') }}">Actores</a></li>
         <li><a href="{{ route('genres.listar') }}">Generos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
