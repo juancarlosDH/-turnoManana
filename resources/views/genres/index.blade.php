@@ -6,7 +6,11 @@
 
     <ul>
     @foreach ($genres as $genre)
-        <li>  <a href="/genres/{{$genre->id}}">{{$genre->name}}</a> </li>
+        <li>
+            <a href="/genres/{{$genre->id}}">{{$genre->name}}</a>
+            <a href="/genres/{{$genre->id}}/edit">Editar</a>
+            <a href="/genres/{{$genre->id}}/delete">Eliminar</a>
+         </li>
     @endforeach
     </ul>
 @endsection

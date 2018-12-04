@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class GenerosController extends Controller
 {
-    public function agregar()
+    public function agregar($id, Request $request)
     {
         return view('generos/agregar');
     }

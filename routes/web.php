@@ -12,6 +12,11 @@ Route::prefix('/actors')->name('actors.')->group( function(){
 
 
 Route::prefix('/genres')->name('genres.')->group( function(){
+    Route::get('/{id}/edit', 'GenresController@edit');
+    Route::post('/{id}/edit', 'GenresController@update');
+
+    Route::get('/{id}/delete', 'GenresController@delete');
+
     Route::get('/new', 'GenresController@add')->name('add');
     Route::post('/', 'GenresController@save')->name('save');
     Route::get('/', 'GenresController@index')->name('listar');
