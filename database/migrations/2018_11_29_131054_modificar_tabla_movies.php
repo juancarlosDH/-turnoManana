@@ -13,10 +13,10 @@ class ModificarTablaMovies extends Migration
      */
     public function up()
     {
-        Schema::table('movies', function(Blueprint $table){
+        /*Schema::table('movies', function(Blueprint $table){
             $table->renameColumn('duracion', 'length');
             $table->decimal('rating', 3, 1);
-        });
+        });*/
     }
 
     /**

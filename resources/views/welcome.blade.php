@@ -64,6 +64,11 @@
         </style>
     </head>
     <body>
+        @auth
+            ESTAS ADENTRO
+        @else
+            NO TE LOGUEASTE
+        @endauth
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
